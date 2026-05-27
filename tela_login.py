@@ -9,7 +9,6 @@ def cadastro():
     nome = entrada_nome.get()
     senha = entrada_senha.get()
 
-    # Verifica campos vazios
     if not nome or not senha:
         resultado.config(
             text="Preencha todos os campos!",
@@ -32,6 +31,8 @@ def cadastro():
         text="Usuário cadastrado com sucesso!",
         fg="green"
     )
+    entrada_nome.delete(0,tk.END)
+    entrada_senha.delete(0,tk.END)
 
 # ---------------- LOGIN ----------------
 
@@ -39,7 +40,6 @@ def login():
     nome = entrada_nome.get()
     senha = entrada_senha.get()
 
-    # Verifica campos vazios
     if not nome or not senha:
         resultado.config(
             text="Preencha todos os campos!",
@@ -59,13 +59,13 @@ def login():
         text="Nome ou senha incorretos!",
         fg="red"
     )
+    entrada_nome.delete(0,tk.END)
+    entrada_senha.delete(0,tk.END)
 
-
-# ---------------- JANELA ----------------
 
 janela = tk.Tk()
 janela.title("Sistema de Login")
-janela.geometry("300x250")
+janela.geometry("1980x720")
 
 # Título
 titulo = tk.Label(janela, text="Sistema de Login", font=("Arial", 16))
@@ -90,6 +90,7 @@ botao_cadastro = tk.Button(
     janela,
     text="Cadastrar",
     command=cadastro
+    
 )
 botao_cadastro.pack(pady=5)
 
